@@ -14,8 +14,8 @@ export class TableComponent implements OnInit {
   constructor(private readonly stockMarketService: StockMarketService) {}
 
   public stocks: Observable<StockQuote[]>;
-
-  public columnDefs = [
+  public defaultColumnDefinition = { sortable: true, resizable: true };
+  public columnDefinitions = [
     { headerName: 'CompanyName', field: 'companyName' },
     { headerName: 'Symbol', field: 'symbol' },
     { headerName: 'Latest Price', field: 'latestPrice' },
@@ -25,5 +25,9 @@ export class TableComponent implements OnInit {
 
   public ngOnInit() {
     this.stocks = this.stockMarketService.getHealthCareStocks$();
+  }
+
+  public onFirstDataRendered(params) {
+    params.api.sizeColumnsToFit();
   }
 }

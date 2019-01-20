@@ -1,9 +1,12 @@
 <h1>Ag Grid</h1>
 
-<ag-grid-angular
-  style="width: 500px; height: 500px;"
-  class="ag-theme-balham"
-  [rowData]="stocks | async"
-  [columnDefs]="columnDefs"
->
-</ag-grid-angular>
+<div>
+  <ag-grid-angular
+    class="ag-theme-balham"
+    [rowData]="stocks | async"
+    [defaultColDef]="defaultColumnDefinition"
+    [columnDefs]="columnDefinitions"
+    (firstDataRendered)="onFirstDataRendered($event)"
+  >
+  </ag-grid-angular>
+</div>
