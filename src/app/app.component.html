@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}!</h1>
-</div>
+<nav class="navbar">
+  <h1 class="logo">Angular Table Demo</h1>
+  <div class="nav-links">
+    <a class="nav-item" routerLinkActive="active-link" routerLink="/ag-grid">Ag Grid</a>
+    <a class="nav-item" routerLinkActive="active-link" routerLink="/material-table">Material</a>
+  </div>
+</nav>
 
-<router-outlet></router-outlet>
+<div class="root">
+  <router-outlet></router-outlet>
+</div>

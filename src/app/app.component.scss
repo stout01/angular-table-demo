@@ -1,0 +1,34 @@
+.navbar {
+  align-items: center;
+  background-color: grey;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo {
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-item {
+  border-radius: 1rem;
+  color: rgb(236, 236, 236);
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  text-decoration: none;
+
+  &.active-link, &:hover {
+    background-color: rgb(236, 236, 236);
+    color: rgb(28, 29, 37);
+  }
+}
+
+.root {
+  margin: 1rem;
+}
