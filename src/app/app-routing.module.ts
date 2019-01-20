@@ -7,6 +7,10 @@ const routes: Routes = [
     path: 'material-table',
     loadChildren: './material-table/material-table.module#MaterialTableModule',
   },
+  {
+    path: 'swimlane-table',
+    loadChildren: './swimlane-table/swimlane-table.module#SwimlaneTableModule',
+  },
 ];
 
 @NgModule({
