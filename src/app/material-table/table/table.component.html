@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-title>Material</mat-card-title>
+  <mat-card-title>Material Table</mat-card-title>
   <mat-card-content>
     <div class="mat-elevation-z8">
       <mat-table matSort matSortDisableClear [dataSource]="dataSource">
@@ -32,7 +32,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
       </mat-table>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" pageSize="10"></mat-paginator>
     </div>
   </mat-card-content>
 </mat-card>
