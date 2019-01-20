@@ -7,6 +7,8 @@
     [defaultColDef]="defaultColumnDefinition"
     [columnDefs]="columnDefinitions"
     (firstDataRendered)="onFirstDataRendered($event)"
+    [pagination]="true"
+    paginationPageSize="10"
   >
   </ag-grid-angular>
 </div>
