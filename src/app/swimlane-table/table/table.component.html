@@ -3,7 +3,7 @@
 <div>
   <ngx-datatable
     class="material striped"
-    [rows]="stocks | async"
+    [rows]="stock$ | async"
     [columns]="columns"
     columnMode="force"
     limit="10"

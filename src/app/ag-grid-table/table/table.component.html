@@ -3,7 +3,7 @@
 <div>
   <ag-grid-angular
     class="ag-theme-balham"
-    [rowData]="stocks | async"
+    [rowData]="stock$ | async"
     [defaultColDef]="defaultColumnDefinition"
     [columnDefs]="columnDefinitions"
     (firstDataRendered)="onFirstDataRendered($event)"

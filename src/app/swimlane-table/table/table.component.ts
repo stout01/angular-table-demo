@@ -11,7 +11,7 @@ import { StockMarketService } from '../../core/services/stock-market.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class TableComponent implements OnInit {
-  public stocks: Observable<StockQuote[]>;
+  public stock$: Observable<StockQuote[]>;
 
   public columns = [
     { name: 'CompanyName', prop: 'companyName' },
@@ -24,6 +24,6 @@ export class TableComponent implements OnInit {
   constructor(private readonly stockMarketService: StockMarketService) {}
 
   public ngOnInit() {
-    this.stocks = this.stockMarketService.getHealthCareStocks$();
+    this.stock$ = this.stockMarketService.getHealthCareStocks$();
   }
 }

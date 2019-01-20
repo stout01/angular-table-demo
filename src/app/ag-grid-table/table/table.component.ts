@@ -13,7 +13,7 @@ import { StockMarketService } from '../../core/services/stock-market.service';
 export class TableComponent implements OnInit {
   constructor(private readonly stockMarketService: StockMarketService) {}
 
-  public stocks: Observable<StockQuote[]>;
+  public stock$: Observable<StockQuote[]>;
   public defaultColumnDefinition = { sortable: true, resizable: true };
   public columnDefinitions = [
     { headerName: 'CompanyName', field: 'companyName' },
@@ -24,7 +24,7 @@ export class TableComponent implements OnInit {
   ];
 
   public ngOnInit() {
-    this.stocks = this.stockMarketService.getHealthCareStocks$();
+    this.stock$ = this.stockMarketService.getHealthCareStocks$();
   }
 
   public onFirstDataRendered(params) {
