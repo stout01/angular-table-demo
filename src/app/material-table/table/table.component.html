@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-title>Material</mat-card-title>
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+      <mat-table matSort matSortDisableClear [dataSource]="dataSource">
+        <ng-container matColumnDef="companyName">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Company</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.companyName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Symbol</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.symbol }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="latestPrice">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.latestPrice }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="primaryExchange">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Exchange</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.primaryExchange }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="change">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Change</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{ element.change }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </mat-card-content>
+</mat-card>
