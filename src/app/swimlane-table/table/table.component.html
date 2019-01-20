@@ -1,3 +1,14 @@
-<p>
-  table works!
-</p>
+<h1>Swimlane ngx-datatable</h1>
+
+<div>
+  <ngx-datatable
+    class="material striped"
+    [rows]="stocks | async"
+    [columns]="columns"
+    columnMode="force"
+    limit="10"
+    headerHeight="50"
+    footerHeight="50"
+    rowHeight="auto"
+  ></ngx-datatable>
+</div>
