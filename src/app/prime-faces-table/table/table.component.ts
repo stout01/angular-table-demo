@@ -12,7 +12,7 @@ import { StockMarketService } from '../../core/services/stock-market.service';
 })
 export class TableComponent implements OnInit {
   public columns = [
-    { header: 'CompanyName', field: 'companyName' },
+    { header: 'Company Name', field: 'companyName' },
     { header: 'Symbol', field: 'symbol' },
     { header: 'Latest Price', field: 'latestPrice' },
     { header: 'Change', field: 'change' },
