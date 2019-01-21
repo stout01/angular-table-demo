@@ -1,0 +1,61 @@
+<div id="users-table" stTable #table="stTable">
+  <div *ngIf="table.busy" class="loading-indicator">Loading ...</div>
+  <div class="row">
+    <label class="col-2">
+      <span class="mr-1">Search:</span>
+      <input
+        type="search"
+        placeholder="Case sensitive search on Company Name and Symbol"
+        stSearch="companyName, symbol"
+      />
+    </label>
+    <label class="col-3">
+      <span class="mr-1">Price lower than:</span>
+      <input
+        type="number"
+        placeholder="ex: 2000"
+        stFilterOperator="lt"
+        stFilterType="number"
+        stFilter="latestPrice"
+      />
+    </label>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th stSort="companyName" stSortCycle="true">Company Name</th>
+        <th stSort="symbol">Symbol</th>
+        <th stSort="latestPrice">Latest Price</th>
+        <th stSort="change">Change</th>
+        <th stSort="primaryExchange">Exchange</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stock of table.items">
+        <td>{{ stock.value.companyName }}</td>
+        <td>{{ stock.value.symbol }}</td>
+        <td>{{ stock.value.latestPrice }}</td>
+        <td>{{ stock.value.change }}</td>
+        <td>{{ stock.value.primaryExchange }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div stPagination #pager="stPagination">
+    <div>
+      <p>
+        Showing items <em>{{ pager.length > 0 ? pager.lowerBoundIndex + 1 : 0 }}</em> -
+        <em>{{ pager.higherBoundIndex + 1 }}</em> of <em>{{ pager.length }} </em> items
+      </p>
+    </div>
+    <div>
+      <div>
+        <button (click)="pager.selectPreviousPage()" [disabled]="!pager.isPreviousPageEnabled()">
+          Previous
+        </button>
+        <button (click)="pager.selectNextPage()" [disabled]="!pager.isNextPageEnabled()">
+          Next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

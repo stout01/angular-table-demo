@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'prime-faces-table',
     loadChildren: './prime-faces-table/prime-faces-table.module#PrimeFacesTableModule',
   },
+  {
+    path: 'smart-table',
+    loadChildren: './smart-table/smart-table.module#SmartTableModule',
+  },
 ];
 
 @NgModule({
