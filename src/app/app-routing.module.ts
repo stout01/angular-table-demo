@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'swimlane-table',
     loadChildren: './swimlane-table/swimlane-table.module#SwimlaneTableModule',
   },
+  {
+    path: 'prime-faces-table',
+    loadChildren: './prime-faces-table/prime-faces-table.module#PrimeFacesTableModule',
+  },
 ];
 
 @NgModule({
