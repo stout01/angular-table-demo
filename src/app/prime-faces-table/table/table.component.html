@@ -1,7 +1,7 @@
 <p-table
   #dt
   [columns]="columns"
-  [value]="stocks | async"
+  [value]="stock$ | async"
   [paginator]="true"
   [rows]="10"
   [resizableColumns]="true"

@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Observable } from 'rxjs';
 
-import { StockMarketService } from './../../core/services/stock-market.service';
+import { StockQuote } from '../../core/models/stock-quote';
+import { StockMarketService } from '../../core/services/stock-market.service';
 
 @Component({
   selector: 'app-table',
@@ -17,11 +19,11 @@ export class TableComponent implements OnInit {
     { header: 'Exchange', field: 'primaryExchange' },
   ];
 
-  public stocks;
+  public stock$: Observable<StockQuote[]>;
 
   constructor(private readonly stockMarketService: StockMarketService) {}
 
   public ngOnInit() {
-    this.stocks = this.stockMarketService.getHealthCareStocks$();
+    this.stock$ = this.stockMarketService.getHealthCareStocks$();
   }
 }
