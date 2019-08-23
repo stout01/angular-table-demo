@@ -27,4 +27,4 @@ test:
     - export DISPLAY=:99
   script:
     - npm install --progress=false
-    - npm run test -- --watch=false --browsers=ChromeHeadless
+    - npm run test -- --watch=false
