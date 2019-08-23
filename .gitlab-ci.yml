@@ -14,4 +14,4 @@ test:
   stage: test
   script:
     - npm install --progress=false
-    - npm run test -- --watch=false
+    - npm run test -- --watch=false --browsers=ChromeHeadless
