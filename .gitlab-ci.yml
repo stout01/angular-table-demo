@@ -1,9 +1,13 @@
 build:
   image: node:10
   stage: build
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
   script:
     - npm install
-    - npm run build
+    - npm run build -- --prod --base-href /angular-table-demo/
   artifacts:
     expire_in: 1 week
     paths:
@@ -12,6 +16,10 @@ build:
 test:
   image: node:10
   stage: test
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
   before_script:
     # Add Google Chrome to aptitude's (package manager) sources
     - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee -a /etc/apt/sources.list
@@ -29,12 +37,24 @@ test:
     - npm install --progress=false
     - npm run test -- --watch=false
 
+lint:
+  image: node:10
+  stage: test
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+  script:
+    - npm install --progress=false
+    - npm run lint
+
 pages:
   stage: deploy
   dependencies:
     - build
   script:
     - cp -r dist/angular-table-demo public
+    - cp public/index.html public/404.html
   artifacts:
     paths:
       - public
