@@ -7,7 +7,7 @@ build:
   artifacts:
     expire_in: 1 week
     paths:
-      - dist
+      - dist/
 
 test:
   image: node:10
@@ -28,3 +28,13 @@ test:
   script:
     - npm install --progress=false
     - npm run test -- --watch=false
+
+pages:
+  stage: deploy
+  dependencies:
+    - build
+  script:
+    - cp -r dist/angular-table-demo public
+  artifacts:
+    paths:
+      - public
