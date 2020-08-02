@@ -1,2 +1,10 @@
-@import "~ag-grid-community/dist/styles/ag-grid.css";
-@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import '~ag-grid-community/src/styles/ag-theme-balham/sass/ag-theme-balham-mixin.scss';
+
+.ag-theme-balham {
+  @include ag-theme-balham();
+}
+
+.ag-root-wrapper-body.ag-layout-normal {
+  height: 100%;
+}

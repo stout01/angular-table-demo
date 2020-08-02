@@ -7,7 +7,7 @@ describe('StockMarketService', () => {
   beforeEach(() => TestBed.configureTestingModule({ imports: [HttpClientTestingModule] }));
 
   it('should be created', () => {
-    const service: StockMarketService = TestBed.get(StockMarketService);
+    const service: StockMarketService = TestBed.inject(StockMarketService);
     expect(service).toBeTruthy();
   });
 });

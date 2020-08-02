@@ -2,22 +2,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: 'ag-grid', loadChildren: './ag-grid-table/ag-grid-table.module#AgGridTableModule' },
+  {
+    path: 'ag-grid',
+    loadChildren: () =>
+      import('./ag-grid-table/ag-grid-table.module').then(m => m.AgGridTableModule),
+  },
   {
     path: 'material-table',
-    loadChildren: './material-table/material-table.module#MaterialTableModule',
+    loadChildren: () =>
+      import('./material-table/material-table.module').then(m => m.MaterialTableModule),
   },
   {
     path: 'swimlane-table',
-    loadChildren: './swimlane-table/swimlane-table.module#SwimlaneTableModule',
+    loadChildren: () =>
+      import('./swimlane-table/swimlane-table.module').then(m => m.SwimlaneTableModule),
   },
   {
     path: 'prime-faces-table',
-    loadChildren: './prime-faces-table/prime-faces-table.module#PrimeFacesTableModule',
+    loadChildren: () =>
+      import('./prime-faces-table/prime-faces-table.module').then(m => m.PrimeFacesTableModule),
   },
   {
     path: 'smart-table',
-    loadChildren: './smart-table/smart-table.module#SmartTableModule',
+    loadChildren: () => import('./smart-table/smart-table.module').then(m => m.SmartTableModule),
   },
 ];
 

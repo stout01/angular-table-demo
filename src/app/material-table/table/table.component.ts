@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { StockQuote } from '../../core/models/stock-quote';
 import { StockMarketService } from '../../core/services/stock-market.service';
@@ -11,8 +13,8 @@ import { StockMarketService } from '../../core/services/stock-market.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class TableComponent implements OnInit {
-  @ViewChild(MatPaginator) public paginator: MatPaginator;
-  @ViewChild(MatSort) public sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) public paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) public sort: MatSort;
 
   public dataSource = new MatTableDataSource<StockQuote>();
   public displayedColumns: string[] = [
